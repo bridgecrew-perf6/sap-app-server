@@ -6,9 +6,15 @@
       "type": "string",
       "maxLength": 3,
       "minLength": 3,
-      "defaultValue": "E41",
+      "defaultValue": "SID",
       "metadata": {
         "description": "SAP System ID."
+      }
+    },
+    "vmNameInput": {
+      "type": "string",
+      "metadata": {
+        "description": "The VM Name in Azure and OS level that you want to deploy"
       }
     },
     "osType": {
@@ -83,7 +89,7 @@
     },
     "CostCenter": {
       "type": "string",
-      "defaultValue": "CS123456",
+      "defaultValue": "28007510",
       "metadata": {
         "description": "Provide mandatory Cost Center ID"
       }
@@ -169,7 +175,7 @@
       }
     },
     "sidlower": "[toLower(parameters('sapSystemId'))]",
-    "vmName": "[concat('ulsap',variables('sidlower'))]",
+    "vmName": "[toLower(parameters('vmNameInput'))]",
     "vnetName": "[concat(variables('vmName'), '-vnet')]",
     "publicIpName": "[concat(variables('vmName'), '-pib')]",
     "nicName": "[concat(variables('vmName'), '-nic')]",
